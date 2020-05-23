@@ -1,0 +1,60 @@
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.WDA_BASE_URL = exports.PROJECT_FILE = exports.WDA_RUNNER_BUNDLE_ID = exports.WDA_BUNDLE_ID = exports.BOOTSTRAP_PATH = exports.resetTestProcesses = exports.bundleWDASim = exports.checkForDependencies = exports.NoSessionProxy = exports.WebDriverAgent = void 0;
+
+require("source-map-support/register");
+
+var dependencies = _interopRequireWildcard(require("./lib/check-dependencies"));
+
+var proxies = _interopRequireWildcard(require("./lib/no-session-proxy"));
+
+var driver = _interopRequireWildcard(require("./lib/webdriveragent"));
+
+var constants = _interopRequireWildcard(require("./lib/constants"));
+
+var utils = _interopRequireWildcard(require("./lib/utils"));
+
+var _asyncbox = require("asyncbox");
+
+const {
+  checkForDependencies,
+  bundleWDASim
+} = dependencies;
+exports.bundleWDASim = bundleWDASim;
+exports.checkForDependencies = checkForDependencies;
+const {
+  NoSessionProxy
+} = proxies;
+exports.NoSessionProxy = NoSessionProxy;
+const {
+  WebDriverAgent
+} = driver;
+exports.WebDriverAgent = WebDriverAgent;
+const {
+  WDA_BUNDLE_ID,
+  BOOTSTRAP_PATH,
+  WDA_BASE_URL,
+  WDA_RUNNER_BUNDLE_ID,
+  PROJECT_FILE
+} = constants;
+exports.PROJECT_FILE = PROJECT_FILE;
+exports.WDA_RUNNER_BUNDLE_ID = WDA_RUNNER_BUNDLE_ID;
+exports.WDA_BASE_URL = WDA_BASE_URL;
+exports.BOOTSTRAP_PATH = BOOTSTRAP_PATH;
+exports.WDA_BUNDLE_ID = WDA_BUNDLE_ID;
+const {
+  resetTestProcesses
+} = utils;
+exports.resetTestProcesses = resetTestProcesses;
+
+if (require.main === module) {
+  (0, _asyncbox.asyncify)(checkForDependencies);
+}require('source-map-support').install();
+
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbImNoZWNrRm9yRGVwZW5kZW5jaWVzIiwiYnVuZGxlV0RBU2ltIiwiZGVwZW5kZW5jaWVzIiwiTm9TZXNzaW9uUHJveHkiLCJwcm94aWVzIiwiV2ViRHJpdmVyQWdlbnQiLCJkcml2ZXIiLCJXREFfQlVORExFX0lEIiwiQk9PVFNUUkFQX1BBVEgiLCJXREFfQkFTRV9VUkwiLCJXREFfUlVOTkVSX0JVTkRMRV9JRCIsIlBST0pFQ1RfRklMRSIsImNvbnN0YW50cyIsInJlc2V0VGVzdFByb2Nlc3NlcyIsInV0aWxzIiwicmVxdWlyZSIsIm1haW4iLCJtb2R1bGUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBQUE7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBR0EsTUFBTTtBQUFFQSxFQUFBQSxvQkFBRjtBQUF3QkMsRUFBQUE7QUFBeEIsSUFBeUNDLFlBQS9DOzs7QUFDQSxNQUFNO0FBQUVDLEVBQUFBO0FBQUYsSUFBcUJDLE9BQTNCOztBQUNBLE1BQU07QUFBRUMsRUFBQUE7QUFBRixJQUFxQkMsTUFBM0I7O0FBQ0EsTUFBTTtBQUFFQyxFQUFBQSxhQUFGO0FBQWlCQyxFQUFBQSxjQUFqQjtBQUFpQ0MsRUFBQUEsWUFBakM7QUFBK0NDLEVBQUFBLG9CQUEvQztBQUFxRUMsRUFBQUE7QUFBckUsSUFBc0ZDLFNBQTVGOzs7Ozs7QUFDQSxNQUFNO0FBQUVDLEVBQUFBO0FBQUYsSUFBeUJDLEtBQS9COzs7QUFJQSxJQUFJQyxPQUFPLENBQUNDLElBQVIsS0FBaUJDLE1BQXJCLEVBQTZCO0FBQzNCLDBCQUFTakIsb0JBQVQ7QUFDRCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIGRlcGVuZGVuY2llcyBmcm9tICcuL2xpYi9jaGVjay1kZXBlbmRlbmNpZXMnO1xuaW1wb3J0ICogYXMgcHJveGllcyBmcm9tICcuL2xpYi9uby1zZXNzaW9uLXByb3h5JztcbmltcG9ydCAqIGFzIGRyaXZlciBmcm9tICcuL2xpYi93ZWJkcml2ZXJhZ2VudCc7XG5pbXBvcnQgKiBhcyBjb25zdGFudHMgZnJvbSAnLi9saWIvY29uc3RhbnRzJztcbmltcG9ydCAqIGFzIHV0aWxzIGZyb20gJy4vbGliL3V0aWxzJztcbmltcG9ydCB7IGFzeW5jaWZ5IH0gZnJvbSAnYXN5bmNib3gnO1xuXG5cbmNvbnN0IHsgY2hlY2tGb3JEZXBlbmRlbmNpZXMsIGJ1bmRsZVdEQVNpbSB9ID0gZGVwZW5kZW5jaWVzO1xuY29uc3QgeyBOb1Nlc3Npb25Qcm94eSB9ID0gcHJveGllcztcbmNvbnN0IHsgV2ViRHJpdmVyQWdlbnQgfSA9IGRyaXZlcjtcbmNvbnN0IHsgV0RBX0JVTkRMRV9JRCwgQk9PVFNUUkFQX1BBVEgsIFdEQV9CQVNFX1VSTCwgV0RBX1JVTk5FUl9CVU5ETEVfSUQsIFBST0pFQ1RfRklMRSB9ID0gY29uc3RhbnRzO1xuY29uc3QgeyByZXNldFRlc3RQcm9jZXNzZXMgfSA9IHV0aWxzO1xuXG5cbi8vIFdoZW4gcnVuIGFzIGEgY29tbWFuZCBsaW5lIHV0aWxpdHksIHRoaXMgc2hvdWxkIGNoZWNrIGZvciB0aGUgZGVwZW5kZW5jaWVzXG5pZiAocmVxdWlyZS5tYWluID09PSBtb2R1bGUpIHtcbiAgYXN5bmNpZnkoY2hlY2tGb3JEZXBlbmRlbmNpZXMpO1xufVxuXG5leHBvcnQge1xuICBXZWJEcml2ZXJBZ2VudCxcbiAgTm9TZXNzaW9uUHJveHksXG4gIGNoZWNrRm9yRGVwZW5kZW5jaWVzLCBidW5kbGVXREFTaW0sXG4gIHJlc2V0VGVzdFByb2Nlc3NlcyxcbiAgQk9PVFNUUkFQX1BBVEgsIFdEQV9CVU5ETEVfSUQsXG4gIFdEQV9SVU5ORVJfQlVORExFX0lELCBQUk9KRUNUX0ZJTEUsXG4gIFdEQV9CQVNFX1VSTCxcbn07XG4iXSwiZmlsZSI6ImluZGV4LmpzIiwic291cmNlUm9vdCI6Ii4uIn0=

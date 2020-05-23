@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SETTINGS_HELPER_PKG_ID = exports.CHROMIUM_WIN = exports.WEBVIEW_BASE = exports.WEBVIEW_WIN = exports.NATIVE_WIN = exports.webviewHelpers = exports.commonCapConstraints = exports.startServer = exports.AndroidDriver = exports.androidCommands = exports.androidHelpers = exports.default = void 0;
+
+require("source-map-support/register");
+
+var _yargs = _interopRequireDefault(require("yargs"));
+
+var _asyncbox = require("asyncbox");
+
+var server = _interopRequireWildcard(require("./lib/server"));
+
+var driver = _interopRequireWildcard(require("./lib/driver"));
+
+var androidHelperIndex = _interopRequireWildcard(require("./lib/android-helpers"));
+
+var commandIndex = _interopRequireWildcard(require("./lib/commands/index"));
+
+var webview = _interopRequireWildcard(require("./lib/webview-helpers"));
+
+var caps = _interopRequireWildcard(require("./lib/desired-caps"));
+
+const {
+  startServer
+} = server;
+exports.startServer = startServer;
+const DEFAULT_HOST = 'localhost';
+const DEFAULT_PORT = 4723;
+
+async function main() {
+  let port = _yargs.default.argv.port || DEFAULT_PORT;
+  let host = _yargs.default.argv.host || DEFAULT_HOST;
+  return await startServer(port, host);
+}
+
+if (require.main === module) {
+  (0, _asyncbox.asyncify)(main);
+}
+
+const {
+  AndroidDriver
+} = driver;
+exports.AndroidDriver = AndroidDriver;
+const {
+  helpers: webviewHelpers,
+  NATIVE_WIN,
+  WEBVIEW_WIN,
+  WEBVIEW_BASE,
+  CHROMIUM_WIN
+} = webview;
+exports.CHROMIUM_WIN = CHROMIUM_WIN;
+exports.WEBVIEW_BASE = WEBVIEW_BASE;
+exports.WEBVIEW_WIN = WEBVIEW_WIN;
+exports.NATIVE_WIN = NATIVE_WIN;
+exports.webviewHelpers = webviewHelpers;
+const {
+  commonCapConstraints
+} = caps;
+exports.commonCapConstraints = commonCapConstraints;
+const {
+  commands: androidCommands
+} = commandIndex;
+exports.androidCommands = androidCommands;
+const {
+  helpers: androidHelpers,
+  SETTINGS_HELPER_PKG_ID
+} = androidHelperIndex;
+exports.SETTINGS_HELPER_PKG_ID = SETTINGS_HELPER_PKG_ID;
+exports.androidHelpers = androidHelpers;
+var _default = AndroidDriver;
+exports.default = _default;require('source-map-support').install();
+
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbInN0YXJ0U2VydmVyIiwic2VydmVyIiwiREVGQVVMVF9IT1NUIiwiREVGQVVMVF9QT1JUIiwibWFpbiIsInBvcnQiLCJ5YXJncyIsImFyZ3YiLCJob3N0IiwicmVxdWlyZSIsIm1vZHVsZSIsIkFuZHJvaWREcml2ZXIiLCJkcml2ZXIiLCJoZWxwZXJzIiwid2Vidmlld0hlbHBlcnMiLCJOQVRJVkVfV0lOIiwiV0VCVklFV19XSU4iLCJXRUJWSUVXX0JBU0UiLCJDSFJPTUlVTV9XSU4iLCJ3ZWJ2aWV3IiwiY29tbW9uQ2FwQ29uc3RyYWludHMiLCJjYXBzIiwiY29tbWFuZHMiLCJhbmRyb2lkQ29tbWFuZHMiLCJjb21tYW5kSW5kZXgiLCJhbmRyb2lkSGVscGVycyIsIlNFVFRJTkdTX0hFTFBFUl9QS0dfSUQiLCJhbmRyb2lkSGVscGVySW5kZXgiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7OztBQUdBOztBQUNBOztBQUNBOztBQW1CQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFwQkEsTUFBTTtBQUFFQSxFQUFBQTtBQUFGLElBQWtCQyxNQUF4Qjs7QUFFQSxNQUFNQyxZQUFZLEdBQUcsV0FBckI7QUFDQSxNQUFNQyxZQUFZLEdBQUcsSUFBckI7O0FBRUEsZUFBZUMsSUFBZixHQUF1QjtBQUNyQixNQUFJQyxJQUFJLEdBQUdDLGVBQU1DLElBQU4sQ0FBV0YsSUFBWCxJQUFtQkYsWUFBOUI7QUFDQSxNQUFJSyxJQUFJLEdBQUdGLGVBQU1DLElBQU4sQ0FBV0MsSUFBWCxJQUFtQk4sWUFBOUI7QUFDQSxTQUFPLE1BQU1GLFdBQVcsQ0FBQ0ssSUFBRCxFQUFPRyxJQUFQLENBQXhCO0FBQ0Q7O0FBRUQsSUFBSUMsT0FBTyxDQUFDTCxJQUFSLEtBQWlCTSxNQUFyQixFQUE2QjtBQUMzQiwwQkFBU04sSUFBVDtBQUNEOztBQVVELE1BQU07QUFBRU8sRUFBQUE7QUFBRixJQUFvQkMsTUFBMUI7O0FBQ0EsTUFBTTtBQUFFQyxFQUFBQSxPQUFPLEVBQUVDLGNBQVg7QUFBMkJDLEVBQUFBLFVBQTNCO0FBQXVDQyxFQUFBQSxXQUF2QztBQUFvREMsRUFBQUEsWUFBcEQ7QUFDRUMsRUFBQUE7QUFERixJQUNtQkMsT0FEekI7Ozs7OztBQUVBLE1BQU07QUFBRUMsRUFBQUE7QUFBRixJQUEyQkMsSUFBakM7O0FBQ0EsTUFBTTtBQUFFQyxFQUFBQSxRQUFRLEVBQUVDO0FBQVosSUFBZ0NDLFlBQXRDOztBQUNBLE1BQU07QUFBRVgsRUFBQUEsT0FBTyxFQUFFWSxjQUFYO0FBQTJCQyxFQUFBQTtBQUEzQixJQUFzREMsa0JBQTVEOzs7ZUFHZWhCLGEiLCJzb3VyY2VzQ29udGVudCI6WyIjIS91c3IvYmluL2VudiBub2RlXG4vLyB0cmFuc3BpbGU6bWFpblxuXG5pbXBvcnQgeWFyZ3MgZnJvbSAneWFyZ3MnO1xuaW1wb3J0IHsgYXN5bmNpZnkgfSBmcm9tICdhc3luY2JveCc7XG5pbXBvcnQgKiBhcyBzZXJ2ZXIgZnJvbSAnLi9saWIvc2VydmVyJztcblxuXG5jb25zdCB7IHN0YXJ0U2VydmVyIH0gPSBzZXJ2ZXI7XG5cbmNvbnN0IERFRkFVTFRfSE9TVCA9ICdsb2NhbGhvc3QnO1xuY29uc3QgREVGQVVMVF9QT1JUID0gNDcyMztcblxuYXN5bmMgZnVuY3Rpb24gbWFpbiAoKSB7XG4gIGxldCBwb3J0ID0geWFyZ3MuYXJndi5wb3J0IHx8IERFRkFVTFRfUE9SVDtcbiAgbGV0IGhvc3QgPSB5YXJncy5hcmd2Lmhvc3QgfHwgREVGQVVMVF9IT1NUO1xuICByZXR1cm4gYXdhaXQgc3RhcnRTZXJ2ZXIocG9ydCwgaG9zdCk7XG59XG5cbmlmIChyZXF1aXJlLm1haW4gPT09IG1vZHVsZSkge1xuICBhc3luY2lmeShtYWluKTtcbn1cblxuXG5pbXBvcnQgKiBhcyBkcml2ZXIgZnJvbSAnLi9saWIvZHJpdmVyJztcbmltcG9ydCAqIGFzIGFuZHJvaWRIZWxwZXJJbmRleCBmcm9tICcuL2xpYi9hbmRyb2lkLWhlbHBlcnMnO1xuaW1wb3J0ICogYXMgY29tbWFuZEluZGV4IGZyb20gJy4vbGliL2NvbW1hbmRzL2luZGV4JztcbmltcG9ydCAqIGFzIHdlYnZpZXcgZnJvbSAnLi9saWIvd2Vidmlldy1oZWxwZXJzJztcbmltcG9ydCAqIGFzIGNhcHMgZnJvbSAnLi9saWIvZGVzaXJlZC1jYXBzJztcblxuXG5jb25zdCB7IEFuZHJvaWREcml2ZXIgfSA9IGRyaXZlcjtcbmNvbnN0IHsgaGVscGVyczogd2Vidmlld0hlbHBlcnMsIE5BVElWRV9XSU4sIFdFQlZJRVdfV0lOLCBXRUJWSUVXX0JBU0UsXG4gICAgICAgIENIUk9NSVVNX1dJTiB9ID0gd2VidmlldztcbmNvbnN0IHsgY29tbW9uQ2FwQ29uc3RyYWludHMgfSA9IGNhcHM7XG5jb25zdCB7IGNvbW1hbmRzOiBhbmRyb2lkQ29tbWFuZHMgfSA9IGNvbW1hbmRJbmRleDtcbmNvbnN0IHsgaGVscGVyczogYW5kcm9pZEhlbHBlcnMsIFNFVFRJTkdTX0hFTFBFUl9QS0dfSUQgfSA9IGFuZHJvaWRIZWxwZXJJbmRleDtcblxuXG5leHBvcnQgZGVmYXVsdCBBbmRyb2lkRHJpdmVyO1xuZXhwb3J0IHtcbiAgYW5kcm9pZEhlbHBlcnMsIGFuZHJvaWRDb21tYW5kcywgQW5kcm9pZERyaXZlciwgc3RhcnRTZXJ2ZXIsXG4gIGNvbW1vbkNhcENvbnN0cmFpbnRzLCB3ZWJ2aWV3SGVscGVycywgTkFUSVZFX1dJTiwgV0VCVklFV19XSU4sXG4gIFdFQlZJRVdfQkFTRSwgQ0hST01JVU1fV0lOLCBTRVRUSU5HU19IRUxQRVJfUEtHX0lELFxufTtcbiJdLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiLi4ifQ==
