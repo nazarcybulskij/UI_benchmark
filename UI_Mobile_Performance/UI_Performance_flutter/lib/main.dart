@@ -150,8 +150,8 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
             getImage(widget.item.index),
             height: 100.0,
             width: 100.0,
-            cacheHeight: 300,
-            cacheWidth: 300,
+            cacheHeight: 100,
+            cacheWidth: 100,
             fit: BoxFit.fill,
           ),
           RotationTransition(
@@ -161,8 +161,8 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
               height: 100.0,
               width: 100.0,
               fit: BoxFit.fill,
-              cacheHeight: 300,
-              cacheWidth: 300,
+              cacheHeight: 100,
+              cacheWidth: 100,
             ),
           ),
           Center(

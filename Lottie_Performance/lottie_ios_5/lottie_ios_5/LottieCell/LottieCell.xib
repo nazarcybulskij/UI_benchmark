@@ -17,14 +17,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLw-xG-bfT" customClass="AnimationView" customModule="Lottie">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLw-xG-bfT" customClass="AnimationView" customModule="Lottie">
                         <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
                 </subviews>
             </view>
             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kLw-xG-bfT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8yf-gE-0Of"/>
+                <constraint firstAttribute="bottom" secondItem="kLw-xG-bfT" secondAttribute="bottom" id="HMK-Zw-QnO"/>
+                <constraint firstAttribute="trailing" secondItem="kLw-xG-bfT" secondAttribute="trailing" id="Qr5-3P-Guu"/>
+                <constraint firstItem="kLw-xG-bfT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wlG-4n-jng"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="190" height="142"/>
             <connections>

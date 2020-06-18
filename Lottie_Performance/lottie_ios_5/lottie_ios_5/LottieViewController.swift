@@ -48,10 +48,6 @@ class LottieViewController: UIViewController {
             "loading_copy",
    ]
 
-    var estimateWidth = 140.0
-    var cellMarginSize = 48.0
-
-    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +56,7 @@ class LottieViewController: UIViewController {
 
         collectionView.register(UINib(nibName: "LottieCell", bundle: nil), forCellWithReuseIdentifier: "LottieCell")
         
-        // SetupGrid view
-        self.setupGridView()
+      
 
     }
     
@@ -74,13 +69,6 @@ class LottieViewController: UIViewController {
 //           }
 //       }
     
-    func setupGridView() {
-        let flow = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-        flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
-        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
-    }
-
-
 
 }
 extension LottieViewController:UICollectionViewDataSource{
@@ -99,21 +87,21 @@ extension LottieViewController:UICollectionViewDataSource{
     
 }
 
-extension LottieViewController:UICollectionViewDelegateFlowLayout{
+extension LottieViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+           return 0.0
+       }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           let width = self.calculateWith()
-           return CGSize(width: width, height: width)
-       }
-       
-       func calculateWith() -> CGFloat {
-           let estimatedWidth = CGFloat(estimateWidth)
-           let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
-           let margin = CGFloat(cellMarginSize * 2)
-           let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
-           return width
-       }
-
+        return CGSize(
+            width: self.view.frame.size.width/5,
+            height: self.view.frame.size.width/5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+         return 0.0
+     }
     
 }
 
