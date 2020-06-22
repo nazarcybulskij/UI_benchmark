@@ -20,10 +20,33 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
 
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void didChangeDependencies() {
+    var height  = MediaQuery.of(context).size.width/10;
+    var width = height;
+    for (var index = 0; index  < 10; index++) {
+      precacheImage( Image.asset(
+        GridRotareItem.getImage(index),
+        height: height,
+        width: width,
+        cacheHeight: height.floor(),
+        cacheWidth: width.floor(),
+        fit: BoxFit.cover,
+      ).image, context);
+    }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +123,8 @@ class _GridRotareItemState extends State<GridRotareItem> with SingleTickerProvid
         GridRotareItem.getImage(widget.index),
         height: height,
         width: width,
+        cacheHeight: height.floor(),
+        cacheWidth: width.floor(),
         fit: BoxFit.cover,
       ),
     );
@@ -164,6 +189,8 @@ class _GridFadeItemState extends State<GridFadeItem> with SingleTickerProviderSt
         GridFadeItem.getImage(widget.index),
         height: height,
         width: width,
+        cacheHeight: height.floor(),
+        cacheWidth: width.floor(),
         fit: BoxFit.cover,
       ),
     );
@@ -224,6 +251,8 @@ class _GridScaleItemState extends State<GridScaleItem> with SingleTickerProvider
         GridScaleItem.getImage(widget.index),
         height: width,
         width: height,
+        cacheHeight: height.floor(),
+        cacheWidth: width.floor(),
         fit: BoxFit.cover,
       ),
     );
