@@ -14,7 +14,7 @@
     "appium": "^1.17.0",
     "appium-doctor": "^1.15.0",
     "react": "16.11.0",
-    "react-native": "0.62.0",
+    "react-native": "0.62.3",
     "react-native-fast-image": "^8.1.5",
     "wd": "^1.12.1"
   },
